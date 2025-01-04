@@ -174,7 +174,17 @@ body {
 }
 
 /* New Section Styles */
+.animate {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
 
+/* Initially hide it */
+.why-we-do-it {
+    opacity: 0;
+    transform: translateY(20px); /* Start slightly below */
+}
 .scroll-container {
     height: 200vh;
     /* Two times viewport height to enable scrolling */

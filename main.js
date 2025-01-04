@@ -73,6 +73,51 @@ window.addEventListener('scroll', () => {
     section2.style.opacity = opacity;
 });
 
+copy
+javascript
+
+// Existing code...
+
+// Function to observe section visibility and apply animation
+document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".split-section");
+    const observerOptions = {
+        threshold: 0.6, // Trigger when 60% of the section is visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const lineHighlight = entry.target.querySelector(".line-highlight");
+
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                const offset = Array.from(sections).indexOf(entry.target) * 25; // Adjust based on section position
+                lineHighlight.style.height = "80%";
+                lineHighlight.style.top = `${offset}%`;
+
+                // Check if it's the second section and add the animation class
+                if (entry.target.classList.contains('why-we-do-it')) {
+                    entry.target.classList.add('animate');
+                }
+            } else {
+                entry.target.classList.remove("active");
+                lineHighlight.style.height = "0";
+                lineHighlight.style.top = "0";
+
+                // Remove the animation class when not in view
+                if (entry.target.classList.contains('why-we-do-it')) {
+                    entry.target.classList.remove('animate');
+                }
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach((section) => {
+        observer.observe(section);
+    });
+});
+
+
 // timeline
 document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll(".split-section");
