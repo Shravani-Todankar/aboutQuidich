@@ -1,37 +1,3 @@
-// globe cards
-const locationContent = {
-  "India": {
-      image: "assets/400x300.jpg",
-      title: "ICC Men's Cricket World Cup 2023",
-      description: "In this exhilarating cricketing journey, Quidich Innovation Labs played a pivotal role in the broadcast, contributing significantly to the World Cup's success.",
-      date: "November 27, 2023"
-  },
-  "Paris": {
-      image: "assets/400x300.jpg",
-      title: "European Sports Championship",
-      description: "Quidich brought innovative broadcasting solutions to the heart of Europe, revolutionizing sports coverage.",
-      date: "September 15, 2023"
-  },
-  "California": {
-      image: "assets/400x300.jpg",
-      title: "Tech Innovation Summit",
-      description: "Showcasing cutting-edge broadcast technology at Silicon Valley's premier tech gathering.",
-      date: "August 3, 2023"
-  },
-  "Dubai": {
-      image: "assets/400x300.jpg",
-      title: "International Drone Racing Championship",
-      description: "Pioneering drone-based broadcasting solutions at the world's most prestigious drone racing event.",
-      date: "October 12, 2023"
-  },
-  "Texas": {
-      image: "assets/400x300.jpg",
-      title: "American Football League Finals",
-      description: "Delivering immersive sports coverage for the season finale of American football.",
-      date: "December 5, 2023"
-  }
-};
-
 // Toggle Animation on Container Click
 const container = document.querySelector('.image-container');
 container.addEventListener('click', (e) => {
@@ -98,21 +64,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Calculate when the stacking should occur
     const handleScroll = () => {
         if (!stackCard) return;
-        
+
         const rect = stackCard.getBoundingClientRect();
         const scrollProgress = -rect.top / (rect.height - window.innerHeight);
-        
+
         // Only apply effects when the stackcard is in view
         if (scrollProgress >= 0 && scrollProgress <= 1) {
             // Start transition when scrolled 30% through the section
             if (scrollProgress > 0.3) {
                 whyWeDoItSection.classList.add('active');
                 whatWeDoSection.classList.add('fade');
-                
+
                 // Calculate opacity and transform based on scroll position
                 const transitionProgress = (scrollProgress - 0.3) / 0.4; // Complete transition over 40% of scroll
                 const clampedProgress = Math.min(Math.max(transitionProgress, 0), 1);
-                
+
                 // Apply smooth transitions
                 whyWeDoItSection.style.opacity = clampedProgress;
                 whatWeDoSection.style.opacity = 1 - (clampedProgress * 0.5);
@@ -232,17 +198,6 @@ const markersGroup = svg.append("g").attr("class", "markers");
 //     });
 
 // Change the circle selection to path
-// markersGroup.selectAll("path")
-//     .data(locations)
-//     .enter()
-//     .append("path")
-//     .attr("d", "M12 0C5.4 0 0 5.4 0 12c0 7.2 12 24 12 24s12-16.8 12-24c0-6.6-5.4-12-12-12zm0 18c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z")
-//     .attr("fill", "#e34c10")
-//     .attr("transform", d => {
-//         const [x, y] = projection(d.coordinates) || [0, 0];
-//         return `translate(${x}, ${y}) scale(0.5)`;  // Adjust scale value to change size
-//     });
-
 markersGroup.selectAll("path")
     .data(locations)
     .enter()
@@ -251,17 +206,9 @@ markersGroup.selectAll("path")
     .attr("fill", "#e34c10")
     .attr("transform", d => {
         const [x, y] = projection(d.coordinates) || [0, 0];
-        return `translate(${x}, ${y}) scale(0.5)`;
-    })
-    .style("cursor", "pointer")
-    .on("click", d => {
-        updateCard(d.name);
-        // Optional: Rotate globe to center clicked location
-        const rotation = [-d.coordinates[0], -d.coordinates[1]];
-        projection.rotate(rotation);
-        svg.selectAll(".land").attr("d", path);
-        updateMarkers();
+        return `translate(${x}, ${y}) scale(0.5)`;  // Adjust scale value to change size
     });
+
 
 // Add location labels
 markersGroup.selectAll("text")
@@ -308,7 +255,7 @@ function updateMarkers() {
         })
         .style("display", d => isVisible(d.coordinates) ? "block" : "none");
 
-        
+
 
     markersGroup.selectAll("text")
         .attr("x", d => projection(d.coordinates)[0] + 8)
