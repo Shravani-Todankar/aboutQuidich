@@ -32,7 +32,7 @@
 
 // Toggle Animation on Click
 function toggleAnimation() {
-    const container = document.querySelector('.container');
+    const container = document.querySelector('.image-container');
     container.classList.toggle('active');
 }
 

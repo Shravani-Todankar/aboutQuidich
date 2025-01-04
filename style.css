@@ -65,45 +65,8 @@ body {
   white-space: nowrap;
 }
 
-/* .images-section {
-  display: grid;
-  grid-template-rows: repeat(3, auto);
-  gap: 20px;
-  position: relative;
-  flex: 1;
-  background-image: url(assets/Line\ BG.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-/* Initial Animation States */
-/* .image-container:nth-child(1) {
-    transform: translateX(-18%);
-  }
-
-  .image-container:nth-child(2) {
-    transform: translateX(18%);
-  }
-
-  .image-container:nth-child(3) {
-    transform: translateX(-18%);
-  }
-
-  /* Active State Animations on Click */
-  /* .images-section.active .image-container:nth-child(1) {
-    transform: translateX(20%);
-  }
-
-  .images-section.active .image-container:nth-child(2) {
-    transform: translateX(-20%);
-  }
-
-  .images-section.active .image-container:nth-child(3) {
-    transform: translateX(20%);
-  }  */
-
 /* Styles for the image slide animation */
-.container {
+.image-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -118,9 +81,9 @@ body {
 
 .image-box {
     position: relative;
-    width: 120px;
-    height:350px;
-    max-width: 280px;
+    width: 350px;
+    height:120px;
+    /* max-width: 280px; */
     aspect-ratio: 2.5 / 1;
     overflow: hidden;
     border-radius: 150px;
@@ -155,15 +118,15 @@ body {
     transform: translateX(-18%);
 }
 
-.container.active .image-box:nth-child(1) {
+.image-container.active .image-box:nth-child(1) {
     transform: translateX(20%);
 }
 
-.container.active .image-box:nth-child(2) {
+.image-container.active .image-box:nth-child(2) {
     transform: translateX(-20%);
 }
 
-.container.active .image-box:nth-child(3) {
+.image-container.active .image-box:nth-child(3) {
     transform: translateX(20%);
 }
 
