@@ -477,30 +477,20 @@ body {
     position: relative;
 }
 
-.large-number {
-    font-size: 14rem;
-    font-weight: 800;
-    color: rgba(255, 255, 255, 0.05);
-    position: absolute;
-    text-align: center;
-    z-index: 1;
-    -webkit-text-stroke: 1px #fff;
+.right-content img {
+    /* opacity: 0; */
+    transition: opacity 1s ease-in-out;
 }
 
-.Counters {
-    width:60px;
-    height:60px;
+.fade-in-number {
+    opacity: 1;
+}
+
+.fade-out-number {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease-out 0.6s, transform 1s ease-out 0.6s; /* Added 0.3s delay */
-  }
-  
-  /* Animation class */
-  .animate-counter {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-  }
-  
+}
+
+
 /* Reversed Layout */
 .split-section.reverse {
     flex-direction: row-reverse;
@@ -729,6 +719,18 @@ body {
     }
 }
 
+/* card globe */
+.card {
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .fade-out-card {
+    opacity: 0;
+  }
+  
+  .fade-in-card {
+    opacity: 1;
+  }
 
 /*footer section here*/
 

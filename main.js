@@ -1,20 +1,63 @@
-function handleAnimation() {
-    const counter = document.querySelector('.Counters');
-    
-    if (isElementInViewport(counter)) {
-        counter.classList.add('animate-counter');
-    } else {
-        // Remove the class when element is out of viewport
-        counter.classList.remove('animate-counter');
+// globe card css
+const locationContent = {
+    "India": {
+        image: "assets/400x300.jpg",
+        title: "ICC Men's Cricket World Cup 2023",
+        description: "In this exhilarating cricketing journey, Quidich Innovation Labs played a pivotal role in the broadcast, contributing significantly to the World Cup's success.",
+        date: "November 27, 2023"
+    },
+    "Paris": {
+        image: "assets/400x300.jpg",
+        title: "European Sports Championship",
+        description: "Quidich brought innovative broadcasting solutions to the heart of Europe, revolutionizing sports coverage.",
+        date: "September 15, 2023"
+    },
+    "California": {
+        image: "assets/400x300.jpg",
+        title: "Tech Innovation Summit",
+        description: "Showcasing cutting-edge broadcast technology at Silicon Valley's premier tech gathering.",
+        date: "August 3, 2023"
+    },
+    "Dubai": {
+        image: "assets/400x300.jpg",
+        title: "International Drone Racing Championship",
+        description: "Pioneering drone-based broadcasting solutions at the world's most prestigious drone racing event.",
+        date: "October 12, 2023"
+    },
+    "Texas": {
+        image: "assets/400x300.jpg",
+        title: "American Football League Finals",
+        description: "Delivering immersive sports coverage for the season finale of American football.",
+        date: "December 5, 2023"
     }
-  }
-  
-  // Add scroll event listener
-  window.addEventListener('scroll', handleAnimation);
-  
-  // Check on page load
-  document.addEventListener('DOMContentLoaded', handleAnimation);
-  
+};
+
+function updateCard(location) {
+    const content = locationContent[location];
+    const card = document.querySelector('.card');
+
+    // Add fade-out class
+    card.classList.add('fade-out-card');
+
+    // Update content after fade-out animation
+    setTimeout(() => {
+        card.querySelector('.card-image').src = content.image;
+        card.querySelector('h4').textContent = location;
+        card.querySelector('h2').textContent = content.title;
+        card.querySelector('p').textContent = content.description;
+        card.querySelector('.date').textContent = content.date;
+
+        // Add fade-in class
+        card.classList.remove('fade-out-card');
+        card.classList.add('fade-in-card');
+
+        // Remove fade-in class after animation
+        setTimeout(() => {
+            card.classList.remove('fade-in-card');
+        }, 500);
+    }, 500);
+}
+
 
 // Toggle Animation on Container Click
 const container = document.querySelector('.image-container');
@@ -156,6 +199,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+
+
 // Globe Integration
 var width = 400, height = 400;
 
@@ -216,6 +261,18 @@ const markersGroup = svg.append("g").attr("class", "markers");
 //     });
 
 // Change the circle selection to path
+// markersGroup.selectAll("path")
+//     .data(locations)
+//     .enter()
+//     .append("path")
+//     .attr("d", "M12 0C5.4 0 0 5.4 0 12c0 7.2 12 24 12 24s12-16.8 12-24c0-6.6-5.4-12-12-12zm0 18c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z")
+//     .attr("fill", "#e34c10")
+//     .attr("transform", d => {
+//         const [x, y] = projection(d.coordinates) || [0, 0];
+//         return `translate(${x}, ${y}) scale(0.5)`;  // Adjust scale value to change size
+//     });
+
+
 markersGroup.selectAll("path")
     .data(locations)
     .enter()
@@ -224,9 +281,17 @@ markersGroup.selectAll("path")
     .attr("fill", "#e34c10")
     .attr("transform", d => {
         const [x, y] = projection(d.coordinates) || [0, 0];
-        return `translate(${x}, ${y}) scale(0.5)`;  // Adjust scale value to change size
+        return `translate(${x}, ${y}) scale(0.5)`;
+    })
+    .style("cursor", "pointer")
+    .on("click", d => {
+        updateCard(d.name);
+        // Optional: Rotate globe to center clicked location
+        const rotation = [-d.coordinates[0], -d.coordinates[1]];
+        projection.rotate(rotation);
+        svg.selectAll(".land").attr("d", path);
+        updateMarkers();
     });
-
 
 // Add location labels
 markersGroup.selectAll("text")
@@ -329,3 +394,31 @@ svg.on("mouseup", function () {
 svg.on("mouseleave", function () {
     isDragging = false;
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".Counters");
+
+    // Ensure the IntersectionObserver is supported
+    if (!("IntersectionObserver" in window)) {
+        console.error("IntersectionObserver is not supported in this browser.");
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("fade-in-number");
+                entry.target.classList.remove("fade-out-number");
+            } else {
+                entry.target.classList.add("fade-out-number");
+                entry.target.classList.remove("fade-in-number");
+            }
+        });
+    });
+
+    // Observe all elements with the class "Counters"
+    counters.forEach((counter) => observer.observe(counter));
+});
+
+
