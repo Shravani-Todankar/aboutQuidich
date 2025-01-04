@@ -118,7 +118,8 @@ body {
 
 .image-box {
     position: relative;
-    width: 100%;
+    width: 120px;
+    height:350px;
     max-width: 280px;
     aspect-ratio: 2.5 / 1;
     overflow: hidden;
@@ -164,46 +165,6 @@ body {
 
 .container.active .image-box:nth-child(3) {
     transform: translateX(20%);
-}
-
-.image-container {
-  position: relative;
-  overflow: hidden;
-  border-radius: 50px;
-  width: 350px;
-  height: 120px;
-  /* Matches screenshot aspect ratio */
-  margin-left: 37px;
-}
-
-.image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50px;
-}
-
-.image-container.image-2 {
-  margin-left: 135px;
-  /* Offset for middle image */
-}
-
-.image-container.image-3 {
-  margin-left: 53px;
-  /* Offset for bottom image */
-}
-
-.images-section::after {
-  content: '';
-  position: absolute;
-  top: 10%;
-  left: -50px;
-  width: 150%;
-  height: 100%;
-  background: url('assets/arrows.svg') no-repeat center;
-  background-size: contain;
-  pointer-events: none;
-  z-index: -1;
 }
 
 /* New Section Styles */
