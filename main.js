@@ -1,5 +1,5 @@
 // Toggle Animation on Container Click
-const container = document.querySelector('.container');
+const container = document.querySelector('.image-container');
 container.addEventListener('click', (e) => {
     // Only toggle container animation if clicking the container itself, not an image
     if (e.target === container) {
