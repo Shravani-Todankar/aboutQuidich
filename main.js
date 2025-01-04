@@ -1,34 +1,66 @@
+// // Toggle Animation on Click
+// function toggleAnimation() {
+//     const container = document.querySelector('.image-section');
+//     container.classList.toggle('active');
+//   }
+
+//   // Fading Slideshow for Each Image Box
+//   const imageBoxes = document.querySelectorAll('.image-container');
+//   const slideDelay = 2500; // 4-second delay between each slide
+
+//   function carousel() {
+//     imageBoxes.forEach((box) => {
+//       const slides = box.querySelectorAll('.mySlides');
+//       let activeIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
+
+//       // Remove active class from current image
+//       slides[activeIndex].classList.remove('active');
+
+//       // Move to the next image
+//       activeIndex = (activeIndex + 1) % slides.length;
+
+//       // Add active class to the next image
+//       slides[activeIndex].classList.add('active');
+//     });
+
+//     // Call recursively after delay
+//     setTimeout(carousel, slideDelay);
+//   }
+
+//   // Start the slideshow
+//   carousel();
+
 // Toggle Animation on Click
 function toggleAnimation() {
-    const container = document.querySelector('.image-section');
+    const container = document.querySelector('.container');
     container.classList.toggle('active');
-  }
+}
 
-  // Fading Slideshow for Each Image Box
-  const imageBoxes = document.querySelectorAll('.image-container');
-  const slideDelay = 2500; // 4-second delay between each slide
+// Fading Slideshow for Each Image Box
+const imageBoxes = document.querySelectorAll('.image-box');
+const slideDelay = 2500; // 2.5-second delay between each slide
 
-  function carousel() {
+function carousel() {
     imageBoxes.forEach((box) => {
-      const slides = box.querySelectorAll('.mySlides');
-      let activeIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
+        const slides = box.querySelectorAll('.mySlides');
+        let activeIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
 
-      // Remove active class from current image
-      slides[activeIndex].classList.remove('active');
+        // Remove active class from current image
+        slides[activeIndex].classList.remove('active');
 
-      // Move to the next image
-      activeIndex = (activeIndex + 1) % slides.length;
+        // Move to the next image
+        activeIndex = (activeIndex + 1) % slides.length;
 
-      // Add active class to the next image
-      slides[activeIndex].classList.add('active');
+        // Add active class to the next image
+        slides[activeIndex].classList.add('active');
     });
 
     // Call recursively after delay
     setTimeout(carousel, slideDelay);
-  }
+}
 
-  // Start the slideshow
-  carousel();
+// Start the slideshow
+carousel();
 
 
 document.addEventListener("DOMContentLoaded", () => {
