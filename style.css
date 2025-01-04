@@ -175,28 +175,27 @@ body {
 
 /* New Section Styles */
 
-#scrollsection {
+#section21 {
     position: fixed;
     width: 100%;
     height: 100vh;
     transition: opacity 0.5s ease-in-out;
 }
 
-.what-we-do {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9) 100%);
+.what-we-do, .why-we-do-it {
     padding: 0 5%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.what-we-do {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9) 100%);
     z-index: 1;
 }
 
 .why-we-do-it {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 1) 100%);
-    padding: 0 5%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     z-index: 2;
     opacity: 0;
 }
@@ -228,17 +227,6 @@ body {
     line-height: 1.6;
 }
 
-.text-content .icon img {
-    margin-bottom: 20px;
-}
-
-.image-content {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .image-content img {
     width: 100%;
     max-width: 500px;
@@ -246,11 +234,6 @@ body {
     object-fit: cover;
 }
 
-/* Scroll container to create scrollable space */
-.scroll-container {
-    height: 200vh; /* Two times viewport height to enable scrolling */
-    position: relative;
-}
 
 /* timeline heading */
 #section2 {
