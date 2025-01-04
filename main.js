@@ -56,7 +56,24 @@ function carousel() {
 
 carousel();
 
+// stack cards on scroll
+window.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const section1 = document.querySelector('.what-we-do');
+    const section2 = document.querySelector('.why-we-do-it');
+    
+    // Calculate opacity based on scroll position
+    const opacity = Math.min(scrollPosition / windowHeight, 1);
+    
+    // Fade out first section
+    section1.style.opacity = 1 - opacity;
+    
+    // Fade in second section
+    section2.style.opacity = opacity;
+});
 
+// timeline
 document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll(".split-section");
     const observerOptions = {

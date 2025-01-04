@@ -174,7 +174,7 @@ body {
 }
 
 /* New Section Styles */
-.what-we-do {
+.what-we-do, .why-we-do-it {
     background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9) 100%);
     padding: 0 5%;
     /* Removed extra top and bottom padding for centering */
@@ -187,7 +187,7 @@ body {
     /* Full viewport height */
 }
 
-.what-we-do-content {
+.what-we-do-content .why-we-do-it-content{
     display: flex;
     align-items: center;
     justify-content: center;
