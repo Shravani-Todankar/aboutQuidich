@@ -175,12 +175,6 @@ body {
 
 /* New Section Styles */
 
-.scroll-container {
-    height: 200vh;
-    /* Two times viewport height to enable scrolling */
-    position: relative;
-}
-
 #scrollsection {
     position: fixed;
     width: 100%;
@@ -207,8 +201,7 @@ body {
     opacity: 0;
 }
 
-.what-we-do-content,
-.why-we-do-it-content {
+.what-we-do-content, .why-we-do-it-content {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -251,6 +244,12 @@ body {
     max-width: 500px;
     border-radius: 20px;
     object-fit: cover;
+}
+
+/* Scroll container to create scrollable space */
+.scroll-container {
+    height: 200vh; /* Two times viewport height to enable scrolling */
+    position: relative;
 }
 
 /* timeline heading */
