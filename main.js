@@ -12,12 +12,16 @@ const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const closeButton = document.querySelector('.close-lightbox');
 
-// Add click event to all images
-document.querySelectorAll('.image-box img').forEach(img => {
-    img.addEventListener('click', (e) => {
+// Add click event to all image boxes
+document.querySelectorAll('.image-box').forEach(box => {
+    box.addEventListener('click', (e) => {
         e.stopPropagation(); // Prevent container animation
-        lightboxImg.src = e.target.src;
-        lightbox.classList.add('active');
+        // Find the currently active image in this box
+        const activeImage = box.querySelector('img.active');
+        if (activeImage) {
+            lightboxImg.src = activeImage.src;
+            lightbox.classList.add('active');
+        }
     });
 });
 
