@@ -175,14 +175,54 @@ body {
 
 /* New Section Styles */
 
-#scrollsection {
-    position: fixed;
+.container {
     width: 100%;
-    height: 100vh;
-    transition: opacity 0.5s ease-in-out;
+    margin: 0 auto;
 }
 
-.what-we-do {
+#cards {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 87vh); /* Number of cards and height */
+    gap: 4vw; /* Margin between cards */
+    padding-bottom: calc(4 * 1.5em); /* Cards count x top padding */
+    margin-bottom: 4vw;
+}
+
+.card {
+    position: sticky;
+    top: 0;
+}
+
+#card1 {
+    padding-top: calc(1 * 1.5em); /* Index 1 x top padding */
+}
+
+#card2 {
+    padding-top: calc(2 * 1.5em); /* Index 2 x top padding */
+}
+
+#card1 .card-body {
+    background-color: transparent;
+}
+
+#card2 .card-body {
+    background-color: transparent;
+}
+
+.card-body {
+    box-sizing: border-box;
+    padding: 30px;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+    color: white;
+}
+.what-we-do .card-body {
     background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9) 100%);
     padding: 0 5%;
     display: flex;
@@ -191,7 +231,7 @@ body {
     z-index: 1;
 }
 
-.why-we-do-it {
+.why-we-do-it .card-body{
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 1) 100%);
     padding: 0 5%;
     display: flex;
