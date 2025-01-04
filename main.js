@@ -1,3 +1,21 @@
+function handleAnimation() {
+    const counter = document.querySelector('.Counters');
+    
+    if (isElementInViewport(counter)) {
+        counter.classList.add('animate-counter');
+    } else {
+        // Remove the class when element is out of viewport
+        counter.classList.remove('animate-counter');
+    }
+  }
+  
+  // Add scroll event listener
+  window.addEventListener('scroll', handleAnimation);
+  
+  // Check on page load
+  document.addEventListener('DOMContentLoaded', handleAnimation);
+  
+
 // Toggle Animation on Container Click
 const container = document.querySelector('.image-container');
 container.addEventListener('click', (e) => {
