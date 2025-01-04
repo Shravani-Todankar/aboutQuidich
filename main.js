@@ -60,8 +60,8 @@ carousel();
 window.addEventListener('scroll', () => {
     const scrollPosition = window.scrollY;
     const windowHeight = window.innerHeight;
-    const section1 = document.querySelector('#card1');
-    const section2 = document.querySelector('#card2');
+    const section1 = document.querySelector('.what-we-do');
+    const section2 = document.querySelector('.Why-we-do-it');
     
     // Calculate opacity based on scroll position
     const opacity = Math.min(scrollPosition / windowHeight, 1);
