@@ -176,7 +176,7 @@ body {
 /* New Section Styles */
 
 .scroll-container {
-    height: 100vh;
+    height: 200vh;
     /* Two times viewport height to enable scrolling */
     position: relative;
 }
