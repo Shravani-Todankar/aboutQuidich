@@ -174,39 +174,51 @@ body {
 }
 
 /* New Section Styles */
- 
+
 .scroll-container {
-    height: 200vh; /* Two times viewport height to enable scrolling */
+    height: 100vh;
+    /* Two times viewport height to enable scrolling */
     position: relative;
 }
 
-.what-we-do, .why-we-do-it {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9) 100%);
-    padding: 0 5%;
-    /* Removed extra top and bottom padding for centering */
-    display: flex;
-    align-items: center;
-    /* Center vertically */
-    justify-content: center;
-    /* Center horizontally */
+#scrollsection {
+    position: fixed;
+    width: 100%;
     height: 100vh;
-    /* Full viewport height */
+    transition: opacity 0.5s ease-in-out;
 }
 
-.what-we-do-content .why-we-do-it-content{
+.what-we-do {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9) 100%);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.why-we-do-it {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 1) 100%);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    opacity: 0;
+}
+
+.what-we-do-content,
+.why-we-do-it-content {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5%;
-    /* Space between text and image */
     max-width: 1200px;
-    /* Optional: Set a max width for the content */
 }
 
 .text-content {
     flex: 1;
     text-align: left;
-    /* Center the text */
 }
 
 .text-content h1 {
