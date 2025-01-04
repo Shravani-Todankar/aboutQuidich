@@ -41,7 +41,7 @@ document.addEventListener('keydown', (e) => {
 
 // Fading Slideshow for Each Image Box
 const imageBoxes = document.querySelectorAll('.image-box');
-const slideDelay = 2500;
+const slideDelay = 3500;
 
 function carousel() {
     imageBoxes.forEach((box) => {
