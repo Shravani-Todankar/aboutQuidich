@@ -1,3 +1,36 @@
+// Toggle Animation on Click
+function toggleAnimation() {
+    const container = document.querySelector('.image-section');
+    container.classList.toggle('active');
+  }
+
+  // Fading Slideshow for Each Image Box
+  const imageBoxes = document.querySelectorAll('.image-container');
+  const slideDelay = 2500; // 4-second delay between each slide
+
+  function carousel() {
+    imageBoxes.forEach((box) => {
+      const slides = box.querySelectorAll('.mySlides');
+      let activeIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
+
+      // Remove active class from current image
+      slides[activeIndex].classList.remove('active');
+
+      // Move to the next image
+      activeIndex = (activeIndex + 1) % slides.length;
+
+      // Add active class to the next image
+      slides[activeIndex].classList.add('active');
+    });
+
+    // Call recursively after delay
+    setTimeout(carousel, slideDelay);
+  }
+
+  // Start the slideshow
+  carousel();
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll(".split-section");
     const observerOptions = {

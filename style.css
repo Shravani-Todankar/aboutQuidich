@@ -76,6 +76,32 @@ body {
   background-size: cover;
 }
 
+/* Initial Animation States */
+.image-container:nth-child(1) {
+    transform: translateX(-18%);
+  }
+
+  .image-container:nth-child(2) {
+    transform: translateX(18%);
+  }
+
+  .image-container:nth-child(3) {
+    transform: translateX(-18%);
+  }
+
+  /* Active State Animations on Click */
+  .images-section.active .image-container:nth-child(1) {
+    transform: translateX(20%);
+  }
+
+  .images-section.active .image-container:nth-child(2) {
+    transform: translateX(-20%);
+  }
+
+  .images-section.active .image-container:nth-child(3) {
+    transform: translateX(20%);
+  }
+
 .image-container {
   position: relative;
   overflow: hidden;
