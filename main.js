@@ -56,18 +56,70 @@ function carousel() {
 
 carousel();
 
-window.addEventListener('scroll', () => {
-    const scrollPosition = window.scrollY;
-    const windowHeight = window.innerHeight;
-    const section1 = document.querySelector('.what-we-do');
-    const section2 = document.querySelector('.why-we-do-it');
+// window.addEventListener('scroll', () => {
+//     const scrollPosition = window.scrollY;
+//     const windowHeight = window.innerHeight;
+//     const section1 = document.querySelector('.what-we-do');
+//     const section2 = document.querySelector('.why-we-do-it');
 
-    const opacity = Math.min(scrollPosition / windowHeight, 1);
+//     const opacity = Math.min(scrollPosition / windowHeight, 1);
 
-    section1.style.opacity = 1 - opacity;
-    section2.style.opacity = opacity;
+//     section1.style.opacity = 1 - opacity;
+//     section2.style.opacity = opacity;
+// });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const stackCard = document.querySelector('.stackcard');
+    const whatWeDoSection = document.querySelector('.what-we-do');
+    const whyWeDoItSection = document.querySelector('.why-we-do-it');
+
+    // Calculate when the stacking should occur
+    const handleScroll = () => {
+        if (!stackCard) return;
+        
+        const rect = stackCard.getBoundingClientRect();
+        const scrollProgress = -rect.top / (rect.height - window.innerHeight);
+        
+        // Only apply effects when the stackcard is in view
+        if (scrollProgress >= 0 && scrollProgress <= 1) {
+            // Start transition when scrolled 30% through the section
+            if (scrollProgress > 0.3) {
+                whyWeDoItSection.classList.add('active');
+                whatWeDoSection.classList.add('fade');
+                
+                // Calculate opacity and transform based on scroll position
+                const transitionProgress = (scrollProgress - 0.3) / 0.4; // Complete transition over 40% of scroll
+                const clampedProgress = Math.min(Math.max(transitionProgress, 0), 1);
+                
+                // Apply smooth transitions
+                whyWeDoItSection.style.opacity = clampedProgress;
+                whatWeDoSection.style.opacity = 1 - (clampedProgress * 0.5);
+                whatWeDoSection.style.transform = `scale(${1 - (clampedProgress * 0.05)})`;
+            } else {
+                whyWeDoItSection.classList.remove('active');
+                whatWeDoSection.classList.remove('fade');
+                whyWeDoItSection.style.opacity = 0;
+                whatWeDoSection.style.opacity = 1;
+                whatWeDoSection.style.transform = 'scale(1)';
+            }
+        }
+    };
+
+    // Throttle scroll events for better performance
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                handleScroll();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+
+    // Initial check
+    handleScroll();
 });
-
 
 // timeline
 document.addEventListener("DOMContentLoaded", () => {

@@ -185,9 +185,25 @@ body {
     /* Center horizontally */
     height: 100vh;
     /* Full viewport height */
+
 }
 
-.what-we-do-content {
+.why-we-do-it {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9) 100%);
+    padding: 0 5%;
+    /* Removed extra top and bottom padding for centering */
+    display: flex;
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+    height: 100vh;
+    /* Full viewport height */
+
+}
+
+.what-we-do-content,
+.why-we-do-it-content {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -235,7 +251,62 @@ body {
     object-fit: cover;
 }
 
+/* Reset the stackcard container styles */
+.stackcard {
+    position: relative;
+    height: 200vh; /* Double viewport height to allow for scrolling */
+    overflow: visible;
+}
 
+/* Base styles for both sections */
+.what-we-do, .why-we-do-it {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+}
+
+.what-we-do {
+    z-index: 1;
+}
+
+.why-we-do-it {
+    z-index: 2;
+    margin-top: -100vh; /* Overlap with what-we-do section */
+}
+
+/* Content container styles */
+.what-we-do-content, .why-we-do-it-content {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9) 100%);
+    width: 90%;
+    max-width: 1200px;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform-origin: center center;
+    transition: all 0.5s ease;
+}
+
+/* Initial state for why-we-do-it section */
+.why-we-do-it {
+    opacity: 0;
+    transform: translateY(100px);
+}
+
+/* Styles for active state */
+.why-we-do-it.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.what-we-do.fade {
+    opacity: 0.5;
+    transform: scale(0.95);
+}
 /* timeline heading */
 #section2 {
     height: 40vh;
