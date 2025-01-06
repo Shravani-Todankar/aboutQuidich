@@ -1,31 +1,31 @@
 // globe card css
 const locationContent = {
     "India": {
-        image: "assets/400x300.jpg",
+        image: "./assets/ab-3.jpg",
         title: "ICC Men's Cricket World Cup 2023",
         description: "In this exhilarating cricketing journey, Quidich Innovation Labs played a pivotal role in the broadcast, contributing significantly to the World Cup's success.",
         date: "November 27, 2023"
     },
     "Paris": {
-        image: "assets/400x300.jpg",
+        image: "./assets/IMG_3813.PNG",
         title: "European Sports Championship",
         description: "Quidich brought innovative broadcasting solutions to the heart of Europe, revolutionizing sports coverage.",
         date: "September 15, 2023"
     },
     "California": {
-        image: "assets/400x300.jpg",
+        image: "./assets/ab-4.jpg",
         title: "Tech Innovation Summit",
         description: "Showcasing cutting-edge broadcast technology at Silicon Valley's premier tech gathering.",
         date: "August 3, 2023"
     },
     "Dubai": {
-        image: "assets/400x300.jpg",
+        image: "assets/imgg-1.jpg",
         title: "International Drone Racing Championship",
         description: "Pioneering drone-based broadcasting solutions at the world's most prestigious drone racing event.",
         date: "October 12, 2023"
     },
     "Texas": {
-        image: "assets/400x300.jpg",
+        image: "assets/About.jpeg",
         title: "American Football League Finals",
         description: "Delivering immersive sports coverage for the season finale of American football.",
         date: "December 5, 2023"
